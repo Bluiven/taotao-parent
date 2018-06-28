@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.taotao.manage.mapper.ItemCatMapper">
+
+   <select id="queryItemCatListByStatus" resultType="ItemCat">
+      SELECT id, parent_id, name, status, sort_order, is_parent, created, updated
+      FROM tb_item_cat WHERE status = 1
+      <if test="parentId != null">
+        AND parent_id = #{parentId}
+      </if>
+   </select>
+
+</mapper>
